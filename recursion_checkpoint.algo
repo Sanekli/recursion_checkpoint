@@ -1,0 +1,24 @@
+ALGORITHM ispalindrome
+VAR
+    length: INTEGER;
+    isPalindrome: BOOLEAN;
+    PROCEDURE CheckPalindrome(start: INTEGER, end: INTEGER, OUT isPalindrome: BOOLEAN)
+BEGIN
+    IF (start >= end) THEN
+        isPalindrome := TRUE;
+    else IF (word[start] = word[end]) THEN
+            CheckPalindrome(start + 1, end - 1, OUT isPalindrome);
+    else
+            isPalindrome := FALSE;
+    END_IF
+END
+BEGIN
+    READ (word);
+    length:=size_of(word);
+    CheckPalindrome(1, length, OUT isPalindrome);
+    IF isPalindrome THEN
+        Write (word,  is a palindrome);
+    ELSE
+        Write (word,  is not a palindrome);
+    END_IF
+END
